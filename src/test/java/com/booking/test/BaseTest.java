@@ -12,7 +12,7 @@ public class BaseTest {
 
     Driver myDriver;
 
-    private BookingHomePage espnHome;
+    private BookingHomePage bookingHome;
 
     public BaseTest() {
     }
@@ -22,15 +22,15 @@ public class BaseTest {
     public void beforeSuite(String browser) {
         myDriver = new Driver(browser);
         myDriver.getDriver().manage().window().maximize();
-        espnHome = new BookingHomePage(myDriver.getDriver());
+        bookingHome = new BookingHomePage(myDriver.getDriver());
     }
 
     @AfterSuite(alwaysRun=true)
     public void afterSuite() {
-        espnHome.dispose();
+        bookingHome.dispose();
     }
 
-    public BookingHomePage getEspnHomePage() {
-        return espnHome;
+    public BookingHomePage getBookingHomePage() {
+        return bookingHome;
     }
 }

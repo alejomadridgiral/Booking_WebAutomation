@@ -29,7 +29,9 @@ public abstract class BasePage {
 
     public void dispose(){
         if (driver != null){
-            driver.quit();
+//            driver.quit();
         }
     }
+
+
 }

@@ -8,12 +8,12 @@
     <parameter name="browser" value="chrome" />
             <!--    <parameter name="browser" value="firefox" />-->
     <test name="My first test">
-        <groups>
-            <run>
-                <include name="logOut" />
-                <exclude name="logOut, logIn, cancelAccount, signUp "></exclude>
-            </run>
-        </groups>
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="logOut" />-->
+<!--                <exclude name="logOut, logIn, cancelAccount, signUp "></exclude>-->
+<!--            </run>-->
+<!--        </groups>-->
         <classes>
             <class name="com.booking.test.BookingHomeTest"></class>
         </classes>
