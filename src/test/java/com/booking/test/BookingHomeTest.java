@@ -16,18 +16,24 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
         bookingHome.getCheckInMonthAndYear(); //String MonthAndYear = bookingHome.getCheckInMonthAndYear();
-//        System.out.println(MonthAndYear);
-//        String month = bookingHome.getCheckInMonth();
-//        System.out.println(month);
-//        String year = bookingHome.getCheckInYear();
-//        System.out.println(year);
-//        while(!(month.equals("June") && year.equals("2022"))){
-//            MonthAndYear = bookingHome.getCheckInMonthAndYear();
-//            bookingHome.clickNextMonth();
-//            month = bookingHome.getCheckInMonth();
-//            year = bookingHome.getCheckInYear();
-//        }
-////        bookingHome.lookForFuture();
+        System.out.println(bookingHome.getCheckInMonthAndYear());
+        bookingHome.getCheckInMonth();
+        System.out.println(bookingHome.getCheckInMonth());
+        bookingHome.getCheckInYear();
+        System.out.println(bookingHome.getCheckInYear());
+        while(!(bookingHome.getCheckInMonth().equals("junio") && bookingHome.getCheckInYear().equals("2022"))){
+            bookingHome.clickNextMonth();
+            bookingHome.getCheckInMonthAndYear();
+
+            System.out.println(bookingHome.getCheckInMonthAndYear());
+            bookingHome.getCheckInMonth();
+            System.out.println(bookingHome.getCheckInMonth());
+            bookingHome.getCheckInYear();
+            System.out.println(bookingHome.getCheckInYear());
+
+        }
+//        bookingHome.lookForFuture();
+
         bookingHome.clickCalendarInDay();
         bookingHome.clickCalendarOutDay();
         bookingHome.clickGuests();

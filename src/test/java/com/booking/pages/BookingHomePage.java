@@ -47,7 +47,7 @@ public class BookingHomePage extends BasePage {
         getWait().until(ExpectedConditions.visibilityOfAllElements(calendar));
     }
 
-    @FindBy(xpath = "//div[normalize-space()='noviembre 2021']")
+    @FindBy(className = "bui-calendar__month")
     private WebElement checkInMonthAndYear;
 
     public String getCheckInMonthAndYear() {
@@ -72,8 +72,10 @@ public class BookingHomePage extends BasePage {
         nextMonth.click();
     }
 
-    @FindBy(css = "span[aria-label='25 noviembre 2021'] span[aria-hidden='true']")
+    @FindBy(xpath = "//span[contains(@aria-label,'22 junio 2022')]//span[contains(@aria-hidden,'true')][normalize-space()='22']")
     private WebElement calendarInDay;
+
+
 
     //td[@class='bui-calendar__date bui-calendar__date--selected']
 
@@ -93,7 +95,7 @@ public class BookingHomePage extends BasePage {
     @FindBy (xpath = "//div[normalize-space()='diciembre 2021']")
     private WebElement checkOutMonth;
 
-    @FindBy (css = "span[aria-label='10 diciembre 2021'] span[aria-hidden='true']")
+    @FindBy (css = "span[aria-label='7 julio 2022'] span[aria-hidden='true']")
     private WebElement calendarOutDay;
 
     public void clickCalendarOutDay(){
