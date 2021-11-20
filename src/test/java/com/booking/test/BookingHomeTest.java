@@ -28,7 +28,13 @@ public class BookingHomeTest extends BaseTest{
 //            year = bookingHome.getCheckInYear();
 //        }
 ////        bookingHome.lookForFuture();
-        bookingHome.clickCalendarDay();
+        bookingHome.clickCalendarInDay();
+        bookingHome.clickCalendarOutDay();
+        bookingHome.clickGuests();
+        bookingHome.clickAddAdults();
+        bookingHome.clickAddKids();
+        bookingHome.clickAgeKid();
+
     }
 
 }
