@@ -21,7 +21,7 @@ public class BookingHomeTest extends BaseTest{
         System.out.println(bookingHome.getCheckInMonth());
         bookingHome.getCheckInYear();
         System.out.println(bookingHome.getCheckInYear());
-        while(!(bookingHome.getCheckInMonth().equals("junio") && bookingHome.getCheckInYear().equals("2022"))){
+        while(!(bookingHome.getCheckInMonth().equals("diciembre") && bookingHome.getCheckInYear().equals("2021"))){
             bookingHome.clickNextMonth();
             bookingHome.getCheckInMonthAndYear();
 
@@ -39,8 +39,13 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();
-        bookingHome.clickAgeKid();
-
+//        bookingHome.clickAgeKid();
+        String option = "9 años";
+        bookingHome.selectFromDropDown(option);
+        bookingHome.getSelectedOptions();
+        System.out.println(getBookingHomePage());
+        Assert.assertEquals(bookingHome.getSelectedOptions().size(), 1, "Incorrect number of selections");
+        Assert.assertTrue(bookingHome.getSelectedOptions().contains(option), "Option not Selected");
+        bookingHome.clickSearch();
     }
-
 }

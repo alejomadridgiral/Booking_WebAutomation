@@ -6,7 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookingHomePage extends BasePage {
 
@@ -72,7 +76,7 @@ public class BookingHomePage extends BasePage {
         nextMonth.click();
     }
 
-    @FindBy(xpath = "//span[contains(@aria-label,'22 junio 2022')]//span[contains(@aria-hidden,'true')][normalize-space()='22']")
+    @FindBy(xpath = "//span[text()='22']")
     private WebElement calendarInDay;
 
 
@@ -95,7 +99,7 @@ public class BookingHomePage extends BasePage {
     @FindBy (xpath = "//div[normalize-space()='diciembre 2021']")
     private WebElement checkOutMonth;
 
-    @FindBy (css = "span[aria-label='7 julio 2022'] span[aria-hidden='true']")
+    @FindBy (xpath = "//span[text()='6']")
     private WebElement calendarOutDay;
 
     public void clickCalendarOutDay(){
@@ -124,18 +128,33 @@ public class BookingHomePage extends BasePage {
         addKids.click();
     }
 
-    @FindBy(className = "sb-group-field-has-error")
+    @FindBy(name = "age")
     private WebElement ageKid;
 
-    public void clickAgeKid(){
-        getWait().until(ExpectedConditions.elementToBeClickable(ageKid));
-        ageKid.click();
+//    public void clickAgeKid(){
+//        getWait().until(ExpectedConditions.elementToBeClickable(ageKid));
+//        ageKid.click();
+//    }
+
+    public void selectFromDropDown(String option){
+        findDropDownElement().selectByVisibleText(option);
     }
 
-    @FindBy (xpath = "//*[@id=\"xp__guests__inputs-container\"]/div/div/div[3]/select/option[11]")
-    private WebElement age9;
+    public List<String> getSelectedOptions(){
+        List<WebElement> selectedElements = findDropDownElement().getAllSelectedOptions();
+        return selectedElements.stream().map(e->e.getText()).collect(Collectors.toList());
+    }
 
+    private Select findDropDownElement(){
+        return new Select(ageKid);
+    }
 
+    @FindBy (className = "sb-searchbox__button")
+    private WebElement search;
 
+    public void clickSearch(){
+        getWait().until(ExpectedConditions.elementToBeClickable(search));
+        search.click();
+    }
 
 }
