@@ -2,6 +2,8 @@ package com.booking.test;
 
 import com.booking.driver.Driver;
 import com.booking.pages.BookingHomePage;
+import com.booking.pages.HotelsPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
@@ -13,6 +15,7 @@ public class BaseTest {
     Driver myDriver;
 
     private BookingHomePage bookingHome;
+
 
     public BaseTest() {
     }
@@ -33,4 +36,5 @@ public class BaseTest {
     public BookingHomePage getBookingHomePage() {
         return bookingHome;
     }
+
 }

@@ -47,5 +47,6 @@ public class BookingHomeTest extends BaseTest{
         Assert.assertEquals(bookingHome.getSelectedOptions().size(), 1, "Incorrect number of selections");
         Assert.assertTrue(bookingHome.getSelectedOptions().contains(option), "Option not Selected");
         bookingHome.clickSearch();
+//        bookingHome.goToHotelsPage();
     }
 }

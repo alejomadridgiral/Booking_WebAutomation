@@ -15,7 +15,8 @@
 <!--            </run>-->
 <!--        </groups>-->
         <classes>
-            <class name="com.booking.test.BookingHomeTest"></class>
+<!--            <class name="com.booking.test.BookingHomeTest"></class>-->
+            <class name="com.booking.test.HotelsTest"></class>
         </classes>
     </test>
 </suite>

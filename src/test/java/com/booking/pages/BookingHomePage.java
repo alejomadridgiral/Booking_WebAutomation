@@ -152,9 +152,14 @@ public class BookingHomePage extends BasePage {
     @FindBy (className = "sb-searchbox__button")
     private WebElement search;
 
-    public void clickSearch(){
+    public HotelsPage clickSearch(){
         getWait().until(ExpectedConditions.elementToBeClickable(search));
         search.click();
+        return new HotelsPage(getDriver());
     }
+
+//    public HotelsPage goToHotelsPage(){
+//        return new HotelsPage(getDriver());
+//    }
 
 }
