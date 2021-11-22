@@ -39,7 +39,6 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();
-//        bookingHome.clickAgeKid();
         String option = "9 años";
         bookingHome.selectFromDropDown(option);
         bookingHome.getSelectedOptions();
@@ -47,6 +46,6 @@ public class BookingHomeTest extends BaseTest{
         Assert.assertEquals(bookingHome.getSelectedOptions().size(), 1, "Incorrect number of selections");
         Assert.assertTrue(bookingHome.getSelectedOptions().contains(option), "Option not Selected");
         bookingHome.clickSearch();
-//        bookingHome.goToHotelsPage();
+
     }
 }

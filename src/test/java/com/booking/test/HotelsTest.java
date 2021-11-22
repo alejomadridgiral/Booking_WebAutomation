@@ -38,12 +38,21 @@ public class HotelsTest extends BaseTest{
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();
-//        bookingHome.clickAgeKid();
         String option = "9 años";
         bookingHome.selectFromDropDown(option);
         bookingHome.getSelectedOptions();
         HotelsPage hotelsPage = bookingHome.clickSearch();
         hotelsPage.clickFiveStars();
+        hotelsPage.runHotelsTitle();
+        hotelsPage.runHotelsScore();
+        hotelsPage.runHotelsPrice();
+        Assert.assertEquals(hotelsPage.runHotelsTitle().size(),hotelsPage.runHotelsScore().size());
+        Assert.assertEquals(hotelsPage.runHotelsScore().size(),hotelsPage.runHotelsTitle().size());
+        Assert.assertEquals(hotelsPage.runHotelsPrice().size(),hotelsPage.runHotelsTitle().size());
+        hotelsPage.clickSecondHotel();
+
+        //getBookingHomePage().clickMultipleWindows().clickHere();
+        getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
     }
 
 }

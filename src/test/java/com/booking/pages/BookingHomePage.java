@@ -79,12 +79,6 @@ public class BookingHomePage extends BasePage {
     @FindBy(xpath = "//span[text()='22']")
     private WebElement calendarInDay;
 
-
-
-    //td[@class='bui-calendar__date bui-calendar__date--selected']
-
-
-
     public void clickCalendarInDay(){
         getWait().until(ExpectedConditions.visibilityOfAllElements(calendar));
         calendarInDay.click();
@@ -131,11 +125,6 @@ public class BookingHomePage extends BasePage {
     @FindBy(name = "age")
     private WebElement ageKid;
 
-//    public void clickAgeKid(){
-//        getWait().until(ExpectedConditions.elementToBeClickable(ageKid));
-//        ageKid.click();
-//    }
-
     public void selectFromDropDown(String option){
         findDropDownElement().selectByVisibleText(option);
     }
@@ -158,8 +147,10 @@ public class BookingHomePage extends BasePage {
         return new HotelsPage(getDriver());
     }
 
-//    public HotelsPage goToHotelsPage(){
-//        return new HotelsPage(getDriver());
-//    }
+    public MultipleWindowsPage clickMultipleWindows(){
+//        clickLink("Miltiple Windows");
+        return new MultipleWindowsPage(getDriver());
+    }
+
 
 }

@@ -3,6 +3,7 @@ package com.booking.test;
 import com.booking.driver.Driver;
 import com.booking.pages.BookingHomePage;
 import com.booking.pages.HotelsPage;
+import com.booking.utils.WindowManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -35,6 +36,10 @@ public class BaseTest {
 
     public BookingHomePage getBookingHomePage() {
         return bookingHome;
+    }
+
+    public WindowManager getWindowManager(){
+        return new WindowManager(myDriver.getDriver());
     }
 
 }
