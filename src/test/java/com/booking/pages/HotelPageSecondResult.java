@@ -4,6 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class HotelPageSecondResult extends BasePage {
 
@@ -50,7 +54,23 @@ public class HotelPageSecondResult extends BasePage {
         confirmBooking.click();
     }
 
+    @FindBy(xpath = "//select[@class='hprt-nos-select js-hprt-nos-select' and @data-component='hotel/new-rooms-table/select-rooms']")
+    private WebElement confirmRooms;
 
+
+
+    public void selectFromDropDown(String option){
+        findDropDownElement().selectByValue(option);
+    }
+
+    public List<String> getSelectedOptions(){
+        List<WebElement> selectedElements = findDropDownElement().getAllSelectedOptions();
+        return selectedElements.stream().map(e->e.getText()).collect(Collectors.toList());
+    }
+
+    private Select findDropDownElement(){
+        return new Select(confirmRooms);
+    }
 
 
 }

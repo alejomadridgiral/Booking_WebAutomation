@@ -40,8 +40,7 @@ public class HotelPageSecondResultTest extends BaseTest{
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();
-        String option = "9 años";
-        bookingHome.selectFromDropDown(option);
+        bookingHome.selectFromDropDown("9 años");
         bookingHome.getSelectedOptions();
 
         HotelsPage hotelsPage = bookingHome.clickSearch();
@@ -59,6 +58,9 @@ public class HotelPageSecondResultTest extends BaseTest{
         hotelPageSecondResult.getTotalPrice();
 //        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(),hotelsPage.printSecondHotelTitle());
         hotelPageSecondResult.clickBooking();
+        hotelPageSecondResult.clickConfirmBooking();
+        hotelPageSecondResult.selectFromDropDown("1");
+        hotelPageSecondResult.getSelectedOptions();
         hotelPageSecondResult.clickConfirmBooking();
     }
 }
