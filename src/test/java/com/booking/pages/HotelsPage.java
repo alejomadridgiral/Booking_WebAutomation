@@ -63,6 +63,7 @@ public class HotelsPage extends BasePage {
 
     public void clickSecondHotel(){
         for (int i = 0; i < 1; i++) {
+            getWait().until(ExpectedConditions.visibilityOfAllElements(hotelTitle));
             hotelTitle.get(1).click();
         }
     }
