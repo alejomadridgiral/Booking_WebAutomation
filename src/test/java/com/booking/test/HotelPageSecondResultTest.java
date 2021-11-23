@@ -1,14 +1,16 @@
 package com.booking.test;
 
 import com.booking.pages.BookingHomePage;
+import com.booking.pages.HotelPageSecondResult;
 import com.booking.pages.HotelsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HotelsTest extends BaseTest{
+public class HotelPageSecondResultTest extends BaseTest{
 
     @Test
-    public void hotelSelection(){
+    public void checkHotelSelection(){
+
         BookingHomePage bookingHome = getBookingHomePage();
         bookingHome.clickStays();
         bookingHome.fillSearchCity("Bogota, Colombia");
@@ -41,17 +43,22 @@ public class HotelsTest extends BaseTest{
         String option = "9 años";
         bookingHome.selectFromDropDown(option);
         bookingHome.getSelectedOptions();
+
         HotelsPage hotelsPage = bookingHome.clickSearch();
         hotelsPage.clickFiveStars();
         hotelsPage.runHotelsTitle();
         hotelsPage.runHotelsScore();
         hotelsPage.runHotelsPrice();
-        Assert.assertEquals(hotelsPage.runHotelsTitle().size(),hotelsPage.runHotelsScore().size());
-        Assert.assertEquals(hotelsPage.runHotelsScore().size(),hotelsPage.runHotelsTitle().size());
-        Assert.assertEquals(hotelsPage.runHotelsPrice().size(),hotelsPage.runHotelsTitle().size());
         hotelsPage.clickSecondHotel();
 
         getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
-    }
 
+        HotelPageSecondResult hotelPageSecondResult = new HotelPageSecondResult(myDriver.getDriver());
+        hotelPageSecondResult.getTitleSecondResult();
+        hotelPageSecondResult.getNumberOfAdultsAndChilds();
+        hotelPageSecondResult.getTotalPrice();
+//        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(),hotelsPage.printSecondHotelTitle());
+        hotelPageSecondResult.clickBooking();
+        hotelPageSecondResult.clickConfirmBooking();
+    }
 }
