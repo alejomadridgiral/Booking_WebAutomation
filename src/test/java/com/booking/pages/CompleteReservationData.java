@@ -54,5 +54,13 @@ public class CompleteReservationData extends BasePage{
         ccCvc.sendKeys(fillCcCvc);
     }
 
+    @FindBy(css = "main[id='content'] li:nth-child(1) div:nth-child(2)")
+    private WebElement automaticName;
+
+    public String getAutomaticName(){
+        System.out.println(automaticName.getText());
+        return automaticName.getText();
+    }
+
 
 }

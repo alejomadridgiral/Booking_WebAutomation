@@ -1,6 +1,7 @@
 package com.booking.test;
 
 import com.booking.pages.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CompleteReservationDataTest extends BaseTest{
@@ -71,6 +72,9 @@ public class CompleteReservationDataTest extends BaseTest{
         completeReservationData.getSelectedOptions();
         completeReservationData.fillCcNumber("5169 8895 8552 0008");
         completeReservationData.fillCcCvc("145");
+
+        String savedName = completeReservationData.getAutomaticName();
+        Assert.assertTrue(savedName.contains("Alejo Madrid"));
 
 
     }
