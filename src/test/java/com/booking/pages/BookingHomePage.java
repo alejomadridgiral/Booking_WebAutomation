@@ -147,9 +147,4 @@ public class BookingHomePage extends BasePage {
         return new HotelsPage(getDriver());
     }
 
-//    public MultipleWindowsPage clickMultipleWindows(){
-////        clickLink("Miltiple Windows");
-//        return new MultipleWindowsPage(getDriver());
-//    }
-
 }

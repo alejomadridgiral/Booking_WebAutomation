@@ -15,7 +15,7 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.fillSearchCity("Bogota, Colombia");
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
-        bookingHome.getCheckInMonthAndYear(); //String MonthAndYear = bookingHome.getCheckInMonthAndYear();
+        bookingHome.getCheckInMonthAndYear();
         System.out.println(bookingHome.getCheckInMonthAndYear());
         bookingHome.getCheckInMonth();
         System.out.println(bookingHome.getCheckInMonth());

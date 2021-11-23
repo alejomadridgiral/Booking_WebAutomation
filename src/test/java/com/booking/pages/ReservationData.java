@@ -31,7 +31,6 @@ public class ReservationData extends BasePage {
     private WebElement email;
 
     public void fillEmail(String fillEmail) {
-//        getWait().until(ExpectedConditions.visibilityOfAllElements(email));
         email.click();
         email.sendKeys(fillEmail);
     }

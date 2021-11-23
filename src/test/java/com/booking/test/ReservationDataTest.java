@@ -15,7 +15,7 @@ public class ReservationDataTest extends BaseTest{
         bookingHome.fillSearchCity("Bogota, Colombia");
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
-        bookingHome.getCheckInMonthAndYear(); //String MonthAndYear = bookingHome.getCheckInMonthAndYear();
+        bookingHome.getCheckInMonthAndYear();
         System.out.println(bookingHome.getCheckInMonthAndYear());
         bookingHome.getCheckInMonth();
         System.out.println(bookingHome.getCheckInMonth());
@@ -67,6 +67,5 @@ public class ReservationDataTest extends BaseTest{
         reservationData.fillEmail("amadrid@yahoo.com");
         reservationData.fillEmail_confirm("amadrid@yahoo.com");
         reservationData.clickLastDataButton();
-
     }
 }
