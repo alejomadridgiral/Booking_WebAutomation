@@ -1,14 +1,15 @@
 package com.booking.test;
 
 import com.booking.pages.BookingHomePage;
+import com.booking.pages.HotelPageSecondResult;
 import com.booking.pages.HotelsPage;
-import org.testng.Assert;
+import com.booking.pages.ReservationData;
 import org.testng.annotations.Test;
 
-public class HotelsTest extends BaseTest{
+public class ReservationDataTest extends BaseTest{
 
     @Test
-    public void hotelSelection(){
+    public void checkReservationData(){
         BookingHomePage bookingHome = getBookingHomePage();
         bookingHome.clickStays();
         bookingHome.fillSearchCity("Bogota, Colombia");
@@ -38,19 +39,30 @@ public class HotelsTest extends BaseTest{
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();
-        String option = "9 años";
-        bookingHome.selectFromDropDown(option);
+        bookingHome.selectFromDropDown("9 años");
         bookingHome.getSelectedOptions();
+
         HotelsPage hotelsPage = bookingHome.clickSearch();
         hotelsPage.clickFiveStars();
         hotelsPage.runHotelsTitle();
         hotelsPage.runHotelsScore();
         hotelsPage.runHotelsPrice();
-        Assert.assertEquals(hotelsPage.runHotelsTitle().size(),hotelsPage.runHotelsScore().size());
-        Assert.assertEquals(hotelsPage.runHotelsScore().size(),hotelsPage.runHotelsTitle().size());
-        Assert.assertEquals(hotelsPage.runHotelsPrice().size(),hotelsPage.runHotelsTitle().size());
         hotelsPage.clickSecondHotel();
-        getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
-    }
 
+        getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
+
+        HotelPageSecondResult hotelPageSecondResult = new HotelPageSecondResult(myDriver.getDriver());
+        hotelPageSecondResult.getTitleSecondResult();
+        hotelPageSecondResult.getNumberOfAdultsAndChilds();
+        hotelPageSecondResult.getTotalPrice();
+        hotelPageSecondResult.clickBooking();
+        hotelPageSecondResult.clickConfirmBooking();
+        hotelPageSecondResult.selectFromDropDown("1");
+        hotelPageSecondResult.getSelectedOptions();
+        hotelPageSecondResult.clickConfirmBooking();
+
+        ReservationData reservationData = new ReservationData(myDriver.getDriver());
+        reservationData.fillFirstname("Alejo");
+
+    }
 }

@@ -17,7 +17,8 @@
         <classes>
 <!--            <class name="com.booking.test.BookingHomeTest"></class>-->
 <!--            <class name="com.booking.test.HotelsTest"></class>-->
-            <class name="com.booking.test.HotelPageSecondResultTest"></class>
+<!--            <class name="com.booking.test.HotelPageSecondResultTest"></class>-->
+            <class name="com.booking.test.ReservationDataTest"></class>
         </classes>
     </test>
 </suite>
