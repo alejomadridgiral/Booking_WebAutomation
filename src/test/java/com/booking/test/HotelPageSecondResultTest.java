@@ -50,13 +50,16 @@ public class HotelPageSecondResultTest extends BaseTest{
         hotelsPage.runHotelsPrice();
         hotelsPage.clickSecondHotel();
 
-        getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
+        String secondHotelTitlehotels = hotelsPage.printSecondHotelTitle();
+
+        getWindowManager().switchToTab(secondHotelTitlehotels);
 
         HotelPageSecondResult hotelPageSecondResult = new HotelPageSecondResult(myDriver.getDriver());
         hotelPageSecondResult.getTitleSecondResult();
         hotelPageSecondResult.getNumberOfAdultsAndChilds();
         hotelPageSecondResult.getTotalPrice();
-//        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(),hotelsPage.printSecondHotelTitle());
+
+        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[1]);
         hotelPageSecondResult.clickBooking();
         hotelPageSecondResult.clickConfirmBooking();
         hotelPageSecondResult.selectFromDropDown("1");

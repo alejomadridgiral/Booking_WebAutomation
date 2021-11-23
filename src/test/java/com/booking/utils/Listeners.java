@@ -1,4 +1,4 @@
-package com.booking.test;
+package com.booking.utils;
 
 import org.testng.ITestListener;
 import org.testng.ITestResult;

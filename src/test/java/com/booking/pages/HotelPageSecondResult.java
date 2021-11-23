@@ -19,8 +19,8 @@ public class HotelPageSecondResult extends BasePage {
     private WebElement titleSecondResult;
 
     public String getTitleSecondResult(){
-        System.out.println(titleSecondResult.getText());
-        return titleSecondResult.getText();
+        System.out.println(titleSecondResult.getText().split(" ")[1]);
+        return titleSecondResult.getText().split(" ")[1];
     }
 
     @FindBy(xpath = "//*[@id=\"group_recommendation\"]/h3")
