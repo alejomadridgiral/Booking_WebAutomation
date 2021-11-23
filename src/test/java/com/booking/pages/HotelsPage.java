@@ -14,7 +14,7 @@ public class HotelsPage extends BasePage {
         super(driver);
     }
 
-    @FindBy (xpath="//*[@id=\"searchboxInc\"]/div[1]/div/div/div[1]/div[5]/div[5]" )
+    @FindBy (xpath = "//div[@data-filters-item='class:class=5']")
     private WebElement fiveStars;
 
     public void clickFiveStars(){

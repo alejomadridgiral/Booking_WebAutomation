@@ -15,9 +15,40 @@ public class ReservationData extends BasePage {
     private WebElement firstname;
 
     public void fillFirstname(String fillfirstname) {
-//        getWait().until(ExpectedConditions.elementToBeClickable(firstname));
         firstname.click();
         firstname.sendKeys(fillfirstname);
     }
 
+    @FindBy (id="lastname")
+    private WebElement lastname;
+
+    public void fillLastname(String fillLastname) {
+        lastname.click();
+        lastname.sendKeys(fillLastname);
+    }
+
+    @FindBy (id="email")
+    private WebElement email;
+
+    public void fillEmail(String fillEmail) {
+//        getWait().until(ExpectedConditions.visibilityOfAllElements(email));
+        email.click();
+        email.sendKeys(fillEmail);
+    }
+
+    @FindBy (id="email_confirm")
+    private WebElement email_confirm;
+
+    public void fillEmail_confirm(String fillEmail_confirm) {
+        getWait().until(ExpectedConditions.visibilityOfAllElements(email_confirm));
+        email_confirm.click();
+        email_confirm.sendKeys(fillEmail_confirm);
+    }
+
+    @FindBy (css="button[name='book'] span[class='bui-button__text js-button__text']")
+    private WebElement lastDataButton;
+
+    public void clickLastDataButton() {
+        lastDataButton.click();
+    }
 }

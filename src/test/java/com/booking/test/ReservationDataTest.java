@@ -63,6 +63,10 @@ public class ReservationDataTest extends BaseTest{
 
         ReservationData reservationData = new ReservationData(myDriver.getDriver());
         reservationData.fillFirstname("Alejo");
+        reservationData.fillLastname("Madrid");
+        reservationData.fillEmail("amadrid@yahoo.com");
+        reservationData.fillEmail_confirm("amadrid@yahoo.com");
+        reservationData.clickLastDataButton();
 
     }
 }
