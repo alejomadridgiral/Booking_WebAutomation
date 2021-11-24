@@ -60,7 +60,6 @@ public class CompleteReservationData extends BasePage{
 
     public String getAutomaticName(){
         getWait().until(ExpectedConditions.visibilityOf(automaticName));
-        System.out.println(automaticName.getText());
         return automaticName.getText();
     }
 
@@ -69,7 +68,6 @@ public class CompleteReservationData extends BasePage{
 
     public String getAutomaticEmail(){
         getWait().until(ExpectedConditions.visibilityOf(automaticEmail));
-        System.out.println(automaticEmail.getText());
         return automaticEmail.getText();
     }
 
@@ -77,7 +75,6 @@ public class CompleteReservationData extends BasePage{
     private WebElement finalHotelTitle;
 
     public String getFinalHotelTitle(){
-        System.out.println(finalHotelTitle.getText() + " getFinalHotelTitle :)");
         return finalHotelTitle.getText();
     }
 
@@ -85,7 +82,6 @@ public class CompleteReservationData extends BasePage{
     private WebElement numberOfAdultsAndChildsFinal;
 
     public String getNumberOfAdultsAndChildsFinal(){
-        System.out.println(numberOfAdultsAndChildsFinal.getText() + " getNumberOfAdultsAndChildsFinal");
         return numberOfAdultsAndChildsFinal.getText();
     }
 
@@ -93,7 +89,6 @@ public class CompleteReservationData extends BasePage{
     private WebElement totalPriceFinal;
 
     public String getTotalPriceFinal(){
-        System.out.println(totalPriceFinal.getText() + " getTotalPriceFinal");
         return totalPriceFinal.getText();
     }
 
@@ -101,7 +96,6 @@ public class CompleteReservationData extends BasePage{
     private WebElement scoreFinal;
 
     public String getScoreFinal(){
-        System.out.println(scoreFinal.getText() + " getScoreFinal");
         return scoreFinal.getText();
     }
 

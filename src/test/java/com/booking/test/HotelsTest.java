@@ -8,7 +8,13 @@ import org.testng.annotations.Test;
 public class HotelsTest extends BaseTest{
 
     /**
-     *@Test1 Steps 1 to 5 Booking final Exercise
+     *@Test2 Step5 Booking final Exercise
+     *
+     * Filter search results by 5 starts. Select the second result after filtering. Verify for
+     * every booking option this elements before moving to next page:
+     * a. Booking hotel’s title.
+     * b. Booking review score.
+     * c. Booking reservation price.
      *
      *
      *@autor Alejandro Madrid
@@ -22,24 +28,14 @@ public class HotelsTest extends BaseTest{
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
         bookingHome.getCheckInMonthAndYear();
-        System.out.println(bookingHome.getCheckInMonthAndYear());
         bookingHome.getCheckInMonth();
-        System.out.println(bookingHome.getCheckInMonth());
         bookingHome.getCheckInYear();
-        System.out.println(bookingHome.getCheckInYear());
         while(!(bookingHome.getCheckInMonth().equals("diciembre") && bookingHome.getCheckInYear().equals("2021"))){
             bookingHome.clickNextMonth();
             bookingHome.getCheckInMonthAndYear();
-
-            System.out.println(bookingHome.getCheckInMonthAndYear());
             bookingHome.getCheckInMonth();
-            System.out.println(bookingHome.getCheckInMonth());
             bookingHome.getCheckInYear();
-            System.out.println(bookingHome.getCheckInYear());
-
         }
-//        bookingHome.lookForFuture();
-
         bookingHome.clickCalendarInDay();
         bookingHome.clickCalendarOutDay();
         bookingHome.clickGuests();
@@ -54,10 +50,13 @@ public class HotelsTest extends BaseTest{
         hotelsPage.runHotelsScore();
         hotelsPage.runHotelsPrice();
 
-        log.info("Validations for Step 5, were for each of the elements to verify(title, score and price) the size is" +
-                "checked in order to verify that all the elements are on the runned list");
+        log.info("Validation titles <list> size vs score <list> size");
         Assert.assertEquals(hotelsPage.runHotelsTitle().size(),hotelsPage.runHotelsScore().size());
+
+        log.info("Validation score <list> size vs titles <list> size");
         Assert.assertEquals(hotelsPage.runHotelsScore().size(),hotelsPage.runHotelsTitle().size());
+
+        log.info("Validation price <list> size vs titles <list> size");
         Assert.assertEquals(hotelsPage.runHotelsPrice().size(),hotelsPage.runHotelsTitle().size());
 
         hotelsPage.clickSecondHotel();

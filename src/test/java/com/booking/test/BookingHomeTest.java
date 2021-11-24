@@ -24,11 +24,8 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
         bookingHome.getCheckInMonthAndYear();
-        System.out.println(bookingHome.getCheckInMonthAndYear());
         bookingHome.getCheckInMonth();
-        System.out.println(bookingHome.getCheckInMonth());
         bookingHome.getCheckInYear();
-        System.out.println(bookingHome.getCheckInYear());
         while(!(bookingHome.getCheckInMonth().equals("diciembre") && bookingHome.getCheckInYear().equals("2021"))){
             bookingHome.clickNextMonth();
             bookingHome.getCheckInMonthAndYear();
@@ -44,7 +41,7 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.selectFromDropDown(option);
         bookingHome.getSelectedOptions();
 
-        log.info("Verification that the dropdown selection is working correctly");
+        log.info("Verification that the dropdown selection is working correctly done");
         Assert.assertEquals(bookingHome.getSelectedOptions().size(), 1, "Incorrect number of selections");
         Assert.assertTrue(bookingHome.getSelectedOptions().contains(option), "Option not Selected");
 

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class HotelPageSecondResultTest extends BaseTest{
 
     /**
-     *@Test2 Steps 6 to 7 Booking final Exercise
+     *@Test3 Steps 6 to 7 Booking final Exercise
      *
      *
      *@autor Alejandro Madrid
@@ -24,24 +24,14 @@ public class HotelPageSecondResultTest extends BaseTest{
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
         bookingHome.getCheckInMonthAndYear();
-        System.out.println(bookingHome.getCheckInMonthAndYear());
         bookingHome.getCheckInMonth();
-        System.out.println(bookingHome.getCheckInMonth());
         bookingHome.getCheckInYear();
-        System.out.println(bookingHome.getCheckInYear());
         while(!(bookingHome.getCheckInMonth().equals("diciembre") && bookingHome.getCheckInYear().equals("2021"))){
             bookingHome.clickNextMonth();
             bookingHome.getCheckInMonthAndYear();
-
-            System.out.println(bookingHome.getCheckInMonthAndYear());
             bookingHome.getCheckInMonth();
-            System.out.println(bookingHome.getCheckInMonth());
             bookingHome.getCheckInYear();
-            System.out.println(bookingHome.getCheckInYear());
-
         }
-//        bookingHome.lookForFuture();
-
         bookingHome.clickCalendarInDay();
         bookingHome.clickCalendarOutDay();
         bookingHome.clickGuests();
@@ -58,28 +48,31 @@ public class HotelPageSecondResultTest extends BaseTest{
         hotelsPage.clickSecondHotel();
 
         String secondHotelTitlehotels = hotelsPage.printSecondHotelTitle();
-        String secondHotelScore = hotelsPage.printSecondHotelScore();
         String secondHotelPrice = hotelsPage.printSecondHotelPrice();
 
         getWindowManager().switchToTab(secondHotelTitlehotels);
 
         HotelPageSecondResult hotelPageSecondResult = new HotelPageSecondResult(myDriver.getDriver());
-        hotelPageSecondResult.getTitleSecondResult2();
         String AdultsAndChilds = hotelPageSecondResult.getNumberOfAdultsAndChilds();
         hotelPageSecondResult.getTotalPrice();
 
-        log.info("Verifications to check information from previous page done");
-        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[0]);
+        log.info("verify total price for reservation dates (check-in and check-out) is displayed");
+        Assert.assertFalse(hotelPageSecondResult.getTotalPrice().isEmpty());
+
+        log.info("Verify total price is the same as the previous page");
         Assert.assertEquals(hotelPageSecondResult.getTotalPrice(), secondHotelPrice);
+
+        log.info("Verify number of adults and childs is the same as the previous page");
         Assert.assertTrue(AdultsAndChilds.contains("Recomendado para 3 adultos, 1 niño"));
 
-        log.info("Verification that price is displayed");
-        Assert.assertFalse(hotelPageSecondResult.getTotalPrice().isEmpty());
+        log.info("Verify booking hotel’s name is the same as the previous page");
+        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[0]);
 
         hotelPageSecondResult.clickBooking();
         hotelPageSecondResult.clickConfirmBooking();
         hotelPageSecondResult.selectFromDropDown("1");
         hotelPageSecondResult.getSelectedOptions();
         hotelPageSecondResult.clickConfirmBooking();
+
     }
 }

@@ -146,5 +146,4 @@ public class BookingHomePage extends BasePage {
         search.click();
         return new HotelsPage(getDriver());
     }
-
 }
