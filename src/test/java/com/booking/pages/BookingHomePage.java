@@ -81,32 +81,17 @@ public class BookingHomePage extends BasePage {
         return monthAndYear.split(" ");
     }
 
-    public void lookForFutureMonth(String day, String month, String year){
+    public void setCheckInDate(String day, String month, String year){
         String monthAndYearText = checkInMonthAndYear.getText();
-//        String getMonth = getMonthAndYear.split(" ")[0].trim();
-//        String getYear = getMonthAndYear.split(" ")[1].trim();
 
         while(!(getMonthYear(monthAndYearText)[0].equals(month) && getMonthYear(monthAndYearText)[1].equals(year))){
             nextMonth.click();
             monthAndYearText = checkInMonthAndYear.getText();
-//            getCheckInMonthAndYear();
-//            getCheckInMonth();
-//            getCheckInYear();
-//            getMonth = getCheckInMonthAndYear().split(" ")[0].trim();
-//            getYear = getCheckInMonthAndYear().split(" ")[1].trim();
         }
 
         getDriver().findElement(By.xpath("//span[contains(@aria-label,'"+day+" "+month+" "+year+"')]//span[contains(@aria-hidden,'true')][normalize-space()='"+day+"']")).click();
 
     }
-
-//    @FindBy(xpath = "//span[contains(@aria-label,'30 diciembre 2021')]//span[contains(@aria-hidden,'true')][normalize-space()='30']")
-//    private WebElement calendarInDay;
-//
-//    public void clickCalendarInDay(){
-//        getWait().until(ExpectedConditions.visibilityOfAllElements(calendar));
-//        calendarInDay.click();
-//    }
 
     @FindBy (xpath = "//div[normalize-space()='diciembre 2021']")
     private WebElement checkOutMonth;
@@ -114,8 +99,8 @@ public class BookingHomePage extends BasePage {
     @FindBy (xpath = "//span[contains(@aria-label,'14 enero 2022')]//span[contains(@aria-hidden,'true')][normalize-space()='14']")
     private WebElement calendarOutDay;
 
-    public void clickCalendarOutDay(){
-        calendarOutDay.click();
+    public void setCheckOutDate(String dayOut, String monthOut, String yearOut){
+        getDriver().findElement(By.xpath("//span[contains(@aria-label,'"+dayOut+" "+monthOut+" "+yearOut+"')]//span[contains(@aria-hidden,'true')][normalize-space()='"+dayOut+"']")).click();
     }
 
     @FindBy (id="xp__guests__toggle")

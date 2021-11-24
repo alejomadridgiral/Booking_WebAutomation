@@ -23,12 +23,8 @@ public class HotelPageSecondResultTest extends BaseTest{
         bookingHome.fillSearchCity("Bogota, Colombia");
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
-//        bookingHome.getCheckInMonthAndYear();
-//        bookingHome.getCheckInMonth();
-//        bookingHome.getCheckInYear();
-        bookingHome.lookForFutureMonth("30","diciembre","2021");
-//        bookingHome.clickCalendarInDay();
-        bookingHome.clickCalendarOutDay();
+        bookingHome.setCheckInDate("30","diciembre","2021");
+        bookingHome.setCheckOutDate("14", "enero","2022");
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();
