@@ -51,15 +51,21 @@ public class HotelPageSecondResultTest extends BaseTest{
         hotelsPage.clickSecondHotel();
 
         String secondHotelTitlehotels = hotelsPage.printSecondHotelTitle();
+        String secondHotelScore = hotelsPage.printSecondHotelScore();
+        String secondHotelPrice = hotelsPage.printSecondHotelPrice();
 
         getWindowManager().switchToTab(secondHotelTitlehotels);
 
         HotelPageSecondResult hotelPageSecondResult = new HotelPageSecondResult(myDriver.getDriver());
-        hotelPageSecondResult.getTitleSecondResult();
-        hotelPageSecondResult.getNumberOfAdultsAndChilds();
+        hotelPageSecondResult.getTitleSecondResult2();
+        String AdultsAndChilds = hotelPageSecondResult.getNumberOfAdultsAndChilds();
         hotelPageSecondResult.getTotalPrice();
 
-        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[1]);
+        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[0]);
+//        Assert.assertEquals((hotelPageSecondResult.getTitleSecondResult2()), secondHotelTitlehotels);
+        Assert.assertEquals(hotelPageSecondResult.getTotalPrice(), secondHotelPrice);
+        Assert.assertTrue(AdultsAndChilds.contains("Recomendado para 3 adultos, 1 niño"));
+        Assert.assertFalse(hotelPageSecondResult.getTotalPrice().isEmpty());
         hotelPageSecondResult.clickBooking();
         hotelPageSecondResult.clickConfirmBooking();
         hotelPageSecondResult.selectFromDropDown("1");

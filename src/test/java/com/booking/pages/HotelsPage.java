@@ -70,8 +70,22 @@ public class HotelsPage extends BasePage {
 
     public String printSecondHotelTitle(){
         String secondHotelTitle = hotelTitle.get(1).getText();
-        System.out.println(secondHotelTitle);
+        System.out.println(secondHotelTitle + " printSecondHotelTitle");
         return secondHotelTitle;
     }
+
+    public String printSecondHotelScore(){
+        String secondHotelScore = hotelScore.get(1).getText();
+        System.out.println(secondHotelScore + " printSecondHotelScore");
+        return secondHotelScore;
+    }
+
+    public String printSecondHotelPrice(){
+        String secondHotelPrice = hotelPrice.get(1).getText();
+        System.out.println(secondHotelPrice + " printSecondHotelPrice");
+        return secondHotelPrice;
+    }
+
+
 
 }

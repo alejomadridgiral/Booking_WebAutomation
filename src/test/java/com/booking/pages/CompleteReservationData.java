@@ -3,6 +3,7 @@ package com.booking.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -58,9 +59,28 @@ public class CompleteReservationData extends BasePage{
     private WebElement automaticName;
 
     public String getAutomaticName(){
+        getWait().until(ExpectedConditions.visibilityOf(automaticName));
         System.out.println(automaticName.getText());
         return automaticName.getText();
     }
+
+    @FindBy(xpath = "//main[@id='content']//li[2]//div[2]")
+    private WebElement automaticEmail;
+
+    public String getAutomaticEmail(){
+        getWait().until(ExpectedConditions.visibilityOf(automaticEmail));
+        System.out.println(automaticEmail.getText());
+        return automaticEmail.getText();
+    }
+
+    @FindBy(id = "bp-property-details__title")
+    private WebElement finalHotelTitle;
+
+    public String getFinalHotelTitle(){
+        System.out.println(finalHotelTitle.getText() + " getFinalHotelTitle :)");
+        return finalHotelTitle.getText();
+    }
+
 
 
 }

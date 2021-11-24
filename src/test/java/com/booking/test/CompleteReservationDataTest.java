@@ -47,6 +47,8 @@ public class CompleteReservationDataTest extends BaseTest{
         hotelsPage.runHotelsPrice();
         hotelsPage.clickSecondHotel();
 
+        String secondHotelTitlehotels = hotelsPage.printSecondHotelTitle();
+
         getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
 
         HotelPageSecondResult hotelPageSecondResult = new HotelPageSecondResult(myDriver.getDriver());
@@ -72,10 +74,11 @@ public class CompleteReservationDataTest extends BaseTest{
         completeReservationData.getSelectedOptions();
         completeReservationData.fillCcNumber("5169 8895 8552 0008");
         completeReservationData.fillCcCvc("145");
-
         String savedName = completeReservationData.getAutomaticName();
         Assert.assertTrue(savedName.contains("Alejo Madrid"));
-
+        String savedEmail = completeReservationData.getAutomaticEmail();
+        Assert.assertTrue(savedEmail.contains("amadrid@yahoo.com"));
+        Assert.assertEquals(completeReservationData.getFinalHotelTitle(), secondHotelTitlehotels);
 
     }
 

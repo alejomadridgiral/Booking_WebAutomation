@@ -18,25 +18,41 @@ public class HotelPageSecondResult extends BasePage {
     @FindBy(css = "#hp_hotel_name")
     private WebElement titleSecondResult;
 
+    @FindBy(xpath = "//*[@id='hp_hotel_name']/text()")
+    private WebElement titleSecondResultSpan;
+
     public String getTitleSecondResult(){
-        System.out.println(titleSecondResult.getText().split(" ")[1]);
+        System.out.println(titleSecondResult.getText().split(" ")[1] + " getTitleSecondResult");
         return titleSecondResult.getText().split(" ")[1];
+    }
+
+    @FindBy(xpath = "//*[@id='hp_hotel_name']/text()")
+    private WebElement titleSecondResult2;
+
+    public String getTitleSecondResult2(){
+        System.out.println(titleSecondResult.getText() + " getTitleSecondResult2");
+        return titleSecondResult.getText();
+    }
+
+    public String getTitleSecondResultSpan(){
+        System.out.println(titleSecondResultSpan.getText() + " getTitleSecondResultSpan");
+        return titleSecondResultSpan.getText();
     }
 
     @FindBy(xpath = "//*[@id=\"group_recommendation\"]/h3")
     private WebElement numberOfAdultsAndChilds;
 
-    public void getNumberOfAdultsAndChilds(){
-        numberOfAdultsAndChilds.getText();
-        System.out.println(numberOfAdultsAndChilds.getText());
+    public String getNumberOfAdultsAndChilds(){
+        System.out.println(numberOfAdultsAndChilds.getText() + " getNumberOfAdultsAndChilds");
+        return numberOfAdultsAndChilds.getText();
     }
 
     @FindBy(xpath = "//*[@id=\"group_recommendation\"]/table/tbody/tr/td[2]/div/div/div[1]/div/span")
     private WebElement totalPrice;
 
-    public void getTotalPrice(){
-        totalPrice.getText();
-        System.out.println(totalPrice.getText());
+    public String getTotalPrice(){
+        System.out.println(totalPrice.getText() + " getTotalPrice");
+        return totalPrice.getText();
     }
 
     @FindBy(css="td[class='submitButton'] a")
