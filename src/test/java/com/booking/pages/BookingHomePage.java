@@ -1,6 +1,7 @@
 package com.booking.pages;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -76,22 +77,36 @@ public class BookingHomePage extends BasePage {
         nextMonth.click();
     }
 
-    @FindBy(xpath = "//span[contains(@aria-label,'30 diciembre 2021')]//span[contains(@aria-hidden,'true')][normalize-space()='30']")
-    private WebElement calendarInDay;
-
-    public void clickCalendarInDay(){
-        getWait().until(ExpectedConditions.visibilityOfAllElements(calendar));
-        calendarInDay.click();
+    public String[] getMonthYear(String monthAndYear){
+        return monthAndYear.split(" ");
     }
 
-    public void lookForFutureMonth(String month, String year){
-        while(!(getCheckInMonth().equals(month) && getCheckInYear().equals(year))){
+    public void lookForFutureMonth(String day, String month, String year){
+        String monthAndYearText = checkInMonthAndYear.getText();
+//        String getMonth = getMonthAndYear.split(" ")[0].trim();
+//        String getYear = getMonthAndYear.split(" ")[1].trim();
+
+        while(!(getMonthYear(monthAndYearText)[0].equals(month) && getMonthYear(monthAndYearText)[1].equals(year))){
             nextMonth.click();
-            getCheckInMonthAndYear();
-            getCheckInMonth();
-            getCheckInYear();
+            monthAndYearText = checkInMonthAndYear.getText();
+//            getCheckInMonthAndYear();
+//            getCheckInMonth();
+//            getCheckInYear();
+//            getMonth = getCheckInMonthAndYear().split(" ")[0].trim();
+//            getYear = getCheckInMonthAndYear().split(" ")[1].trim();
         }
+
+        getDriver().findElement(By.xpath("//span[contains(@aria-label,'"+day+" "+month+" "+year+"')]//span[contains(@aria-hidden,'true')][normalize-space()='"+day+"']")).click();
+
     }
+
+//    @FindBy(xpath = "//span[contains(@aria-label,'30 diciembre 2021')]//span[contains(@aria-hidden,'true')][normalize-space()='30']")
+//    private WebElement calendarInDay;
+//
+//    public void clickCalendarInDay(){
+//        getWait().until(ExpectedConditions.visibilityOfAllElements(calendar));
+//        calendarInDay.click();
+//    }
 
     @FindBy (xpath = "//div[normalize-space()='diciembre 2021']")
     private WebElement checkOutMonth;

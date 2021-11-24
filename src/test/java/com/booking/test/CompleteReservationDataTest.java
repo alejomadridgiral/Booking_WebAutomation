@@ -22,11 +22,11 @@ public class CompleteReservationDataTest extends BaseTest{
         bookingHome.fillSearchCity("Bogota, Colombia");
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
-        bookingHome.getCheckInMonthAndYear();
-        bookingHome.getCheckInMonth();
-        bookingHome.getCheckInYear();
-        bookingHome.lookForFutureMonth("diciembre","2021");
-        bookingHome.clickCalendarInDay();
+//        bookingHome.getCheckInMonthAndYear();
+//        bookingHome.getCheckInMonth();
+//        bookingHome.getCheckInYear();
+        bookingHome.lookForFutureMonth("30","diciembre","2021");
+//        bookingHome.clickCalendarInDay();
         bookingHome.clickCalendarOutDay();
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
