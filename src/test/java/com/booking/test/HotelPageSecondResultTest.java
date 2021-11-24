@@ -42,7 +42,7 @@ public class HotelPageSecondResultTest extends BaseTest{
         hotelsPage.runHotelsPrice();
         hotelsPage.clickSecondHotel();
 
-        String secondHotelTitlehotels = hotelsPage.printSecondHotelTitle();
+        String secondHotelTitlehotels = hotelsPage.printSecondHotelTitleSecondWord();
         String secondHotelPrice = hotelsPage.printSecondHotelPrice();
 
         getWindowManager().switchToTab(secondHotelTitlehotels);
@@ -61,7 +61,7 @@ public class HotelPageSecondResultTest extends BaseTest{
         Assert.assertTrue(AdultsAndChilds.contains("Recomendado para 3 adultos, 1 niño"));
 
         log.info("Verify booking hotel’s name is the same as the previous page");
-        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[0]);
+        Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels);
 
         hotelPageSecondResult.clickBooking();
         hotelPageSecondResult.clickConfirmBooking();
