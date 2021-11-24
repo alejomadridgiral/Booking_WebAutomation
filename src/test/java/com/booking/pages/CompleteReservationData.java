@@ -55,7 +55,7 @@ public class CompleteReservationData extends BasePage{
         ccCvc.sendKeys(fillCcCvc);
     }
 
-    @FindBy(css = "main[id='content'] li:nth-child(1) div:nth-child(2)")
+    @FindBy(xpath = "//main[@id='content']//li[1]//div[2]")
     private WebElement automaticName;
 
     public String getAutomaticName(){
@@ -81,6 +81,28 @@ public class CompleteReservationData extends BasePage{
         return finalHotelTitle.getText();
     }
 
+    @FindBy(xpath = "//li[contains(text(),'3 adultos,')]")
+    private WebElement numberOfAdultsAndChildsFinal;
 
+    public String getNumberOfAdultsAndChildsFinal(){
+        System.out.println(numberOfAdultsAndChildsFinal.getText() + " getNumberOfAdultsAndChildsFinal");
+        return numberOfAdultsAndChildsFinal.getText();
+    }
+
+    @FindBy(xpath = "//*[@id=\"bodyconstraint-inner\"]/div[3]/div[2]/aside/div/div[1]/div/section/div/div[2]/div/div/div/div/div/div[2]/span")
+    private WebElement totalPriceFinal;
+
+    public String getTotalPriceFinal(){
+        System.out.println(totalPriceFinal.getText() + " getTotalPriceFinal");
+        return totalPriceFinal.getText();
+    }
+
+    @FindBy(className = "bui-review-score__badge")
+    private WebElement scoreFinal;
+
+    public String getScoreFinal(){
+        System.out.println(scoreFinal.getText() + " getScoreFinal");
+        return scoreFinal.getText();
+    }
 
 }
