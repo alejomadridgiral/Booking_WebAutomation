@@ -76,7 +76,7 @@ public class BookingHomePage extends BasePage {
         nextMonth.click();
     }
 
-    @FindBy(xpath = "//span[text()='22']")
+    @FindBy(xpath = "//span[contains(@aria-label,'30 diciembre 2021')]//span[contains(@aria-hidden,'true')][normalize-space()='30']")
     private WebElement calendarInDay;
 
     public void clickCalendarInDay(){
@@ -84,16 +84,19 @@ public class BookingHomePage extends BasePage {
         calendarInDay.click();
     }
 
-    public void lookForFuture(){
-        while(!(getCheckInMonth().equals("June") && getCheckInYear().equals("2022"))){
+    public void lookForFutureMonth(String month, String year){
+        while(!(getCheckInMonth().equals(month) && getCheckInYear().equals(year))){
             nextMonth.click();
+            getCheckInMonthAndYear();
+            getCheckInMonth();
+            getCheckInYear();
         }
     }
 
     @FindBy (xpath = "//div[normalize-space()='diciembre 2021']")
     private WebElement checkOutMonth;
 
-    @FindBy (xpath = "//span[text()='6']")
+    @FindBy (xpath = "//span[contains(@aria-label,'14 enero 2022')]//span[contains(@aria-hidden,'true')][normalize-space()='14']")
     private WebElement calendarOutDay;
 
     public void clickCalendarOutDay(){

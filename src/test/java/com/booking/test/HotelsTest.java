@@ -30,12 +30,7 @@ public class HotelsTest extends BaseTest{
         bookingHome.getCheckInMonthAndYear();
         bookingHome.getCheckInMonth();
         bookingHome.getCheckInYear();
-        while(!(bookingHome.getCheckInMonth().equals("diciembre") && bookingHome.getCheckInYear().equals("2021"))){
-            bookingHome.clickNextMonth();
-            bookingHome.getCheckInMonthAndYear();
-            bookingHome.getCheckInMonth();
-            bookingHome.getCheckInYear();
-        }
+        bookingHome.lookForFutureMonth("diciembre","2021");
         bookingHome.clickCalendarInDay();
         bookingHome.clickCalendarOutDay();
         bookingHome.clickGuests();
