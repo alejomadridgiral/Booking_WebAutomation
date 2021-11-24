@@ -23,8 +23,14 @@ public class BookingHomeTest extends BaseTest{
         bookingHome.fillSearchCity("Bogota, Colombia");
         bookingHome.clickCheckInData();
         bookingHome.visibilityOfCalendar();
-        bookingHome.setCheckInDate("30","diciembre","2021");
-        bookingHome.setCheckOutDate("14", "enero","2022");
+        String dayIn = bookingHome.automaticDayCheckIn();
+        String monthIn = bookingHome.automaticMonthCheckIn();
+        String yearIn = bookingHome.automaticYearInCheckIn();
+        bookingHome.setCheckInDate(dayIn,monthIn,yearIn);
+        String dayOut = bookingHome.automaticDayCheckOut();
+        String monthOut = bookingHome.automaticMonthCheckOut();
+        String yearOut = bookingHome.automaticYearInCheckOut();
+        bookingHome.setCheckOutDate(dayOut, monthOut,yearOut);
         bookingHome.clickGuests();
         bookingHome.clickAddAdults();
         bookingHome.clickAddKids();

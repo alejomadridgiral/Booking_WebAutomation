@@ -10,7 +10,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class BookingHomePage extends BasePage {
@@ -77,6 +80,20 @@ public class BookingHomePage extends BasePage {
         nextMonth.click();
     }
 
+    String todayToThirtyDaysDate = LocalDate.now().plusDays(30).format(DateTimeFormatter.ofPattern("d MMMM yyyy"));
+
+    public String automaticDayCheckIn(){
+        return todayToThirtyDaysDate.split(" ")[0];
+    }
+
+    public String automaticMonthCheckIn(){
+        return todayToThirtyDaysDate.split(" ")[1];
+    }
+
+    public String automaticYearInCheckIn(){
+        return todayToThirtyDaysDate.split(" ")[2];
+    }
+
     public String[] getMonthYear(String monthAndYear){
         return monthAndYear.split(" ");
     }
@@ -98,6 +115,21 @@ public class BookingHomePage extends BasePage {
 
     @FindBy (xpath = "//span[contains(@aria-label,'14 enero 2022')]//span[contains(@aria-hidden,'true')][normalize-space()='14']")
     private WebElement calendarOutDay;
+
+    String todayToFortyFiveDaysDate = LocalDate.now().plusDays(45).format(DateTimeFormatter.ofPattern("d MMMM yyyy"));
+
+    public String automaticDayCheckOut(){
+        return todayToFortyFiveDaysDate.split(" ")[0];
+    }
+
+    public String automaticMonthCheckOut(){
+        return todayToFortyFiveDaysDate.split(" ")[1];
+    }
+
+    public String automaticYearInCheckOut(){
+        return todayToFortyFiveDaysDate.split(" ")[2];
+    }
+
 
     public void setCheckOutDate(String dayOut, String monthOut, String yearOut){
         getDriver().findElement(By.xpath("//span[contains(@aria-label,'"+dayOut+" "+monthOut+" "+yearOut+"')]//span[contains(@aria-hidden,'true')][normalize-space()='"+dayOut+"']")).click();
