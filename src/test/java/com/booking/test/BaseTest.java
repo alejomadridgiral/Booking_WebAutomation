@@ -4,6 +4,7 @@ import com.booking.driver.Driver;
 import com.booking.pages.BookingHomePage;
 import com.booking.pages.HotelsPage;
 import com.booking.utils.WindowManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -16,6 +17,7 @@ public class BaseTest {
     Driver myDriver;
 
     private BookingHomePage bookingHome;
+    public Logger log = Logger.getLogger(BaseTest.class);
 
 
     public BaseTest() {

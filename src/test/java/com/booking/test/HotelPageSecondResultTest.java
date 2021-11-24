@@ -8,6 +8,13 @@ import org.testng.annotations.Test;
 
 public class HotelPageSecondResultTest extends BaseTest{
 
+    /**
+     *@Test2 Steps 6 to 7 Booking final Exercise
+     *
+     *
+     *@autor Alejandro Madrid
+     */
+
     @Test
     public void checkHotelSelection(){
 
@@ -61,11 +68,14 @@ public class HotelPageSecondResultTest extends BaseTest{
         String AdultsAndChilds = hotelPageSecondResult.getNumberOfAdultsAndChilds();
         hotelPageSecondResult.getTotalPrice();
 
+        log.info("Verifications to check information from previous page done");
         Assert.assertEquals(hotelPageSecondResult.getTitleSecondResult(), secondHotelTitlehotels.split(" ")[0]);
-//        Assert.assertEquals((hotelPageSecondResult.getTitleSecondResult2()), secondHotelTitlehotels);
         Assert.assertEquals(hotelPageSecondResult.getTotalPrice(), secondHotelPrice);
         Assert.assertTrue(AdultsAndChilds.contains("Recomendado para 3 adultos, 1 niño"));
+
+        log.info("Verification that price is displayed");
         Assert.assertFalse(hotelPageSecondResult.getTotalPrice().isEmpty());
+
         hotelPageSecondResult.clickBooking();
         hotelPageSecondResult.clickConfirmBooking();
         hotelPageSecondResult.selectFromDropDown("1");

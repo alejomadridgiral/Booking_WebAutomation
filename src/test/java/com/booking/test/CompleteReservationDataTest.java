@@ -6,6 +6,15 @@ import org.testng.annotations.Test;
 
 public class CompleteReservationDataTest extends BaseTest{
 
+    /**
+     *@Test4 Step 9. Complete the last data information form and choose 5 page validations to
+     * perform.
+     *
+     *
+     *@autor Alejandro Madrid
+     */
+
+
     @Test
     public void checkConfirmReservationData(){
         BookingHomePage bookingHome = getBookingHomePage();
@@ -75,13 +84,25 @@ public class CompleteReservationDataTest extends BaseTest{
         completeReservationData.getSelectedOptions();
         completeReservationData.fillCcNumber("5169 8895 8552 0008");
         completeReservationData.fillCcCvc("145");
+
+        log.info("Validation for hotel title is the same from second page to last page");
         Assert.assertEquals(completeReservationData.getFinalHotelTitle(), secondHotelTitlehotels);
+
+        log.info("Validation for Adults, childs an age is according to selection");
         String AdultsAndChildsFinal = completeReservationData.getNumberOfAdultsAndChildsFinal();
         Assert.assertTrue(AdultsAndChildsFinal.contains("3 adultos, 1 niño (9 años)"));
+
+        log.info("Validation for hotel price is the same from second page to last page");
         Assert.assertEquals(completeReservationData.getTotalPriceFinal(), secondHotelPrice);
+
+        log.info("Validation for hotel score is the same from second page to last page");
         Assert.assertEquals(completeReservationData.getScoreFinal(), secondHotelScore);
+
+        log.info("Validation that the name entered was recorder correctly");
         String savedName = completeReservationData.getAutomaticName();
         Assert.assertTrue(savedName.contains("Alejo Madrid"));
+
+        log.info("Validation that the email entered was recorder correctly");
         String savedEmail = completeReservationData.getAutomaticEmail();
         Assert.assertTrue(savedEmail.contains("amadrid@yahoo.com"));
 

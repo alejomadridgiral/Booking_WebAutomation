@@ -8,6 +8,14 @@ import org.testng.annotations.Test;
 
 public class BookingHomeTest extends BaseTest{
 
+    /**
+     *@Test1 Steps 1 to 4 Booking final Exercise
+     *
+     *
+     *@autor Alejandro Madrid
+     */
+
+
     @Test
     public void datesSelection(){
         BookingHomePage bookingHome = getBookingHomePage();
@@ -24,16 +32,9 @@ public class BookingHomeTest extends BaseTest{
         while(!(bookingHome.getCheckInMonth().equals("diciembre") && bookingHome.getCheckInYear().equals("2021"))){
             bookingHome.clickNextMonth();
             bookingHome.getCheckInMonthAndYear();
-
-            System.out.println(bookingHome.getCheckInMonthAndYear());
             bookingHome.getCheckInMonth();
-            System.out.println(bookingHome.getCheckInMonth());
             bookingHome.getCheckInYear();
-            System.out.println(bookingHome.getCheckInYear());
-
         }
-//        bookingHome.lookForFuture();
-
         bookingHome.clickCalendarInDay();
         bookingHome.clickCalendarOutDay();
         bookingHome.clickGuests();
@@ -42,9 +43,11 @@ public class BookingHomeTest extends BaseTest{
         String option = "9 años";
         bookingHome.selectFromDropDown(option);
         bookingHome.getSelectedOptions();
-        System.out.println(getBookingHomePage());
+
+        log.info("Verification that the dropdown selection is working correctly");
         Assert.assertEquals(bookingHome.getSelectedOptions().size(), 1, "Incorrect number of selections");
         Assert.assertTrue(bookingHome.getSelectedOptions().contains(option), "Option not Selected");
+
         bookingHome.clickSearch();
 
     }

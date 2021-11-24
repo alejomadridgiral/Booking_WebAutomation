@@ -7,6 +7,13 @@ import org.testng.annotations.Test;
 
 public class HotelsTest extends BaseTest{
 
+    /**
+     *@Test1 Steps 1 to 5 Booking final Exercise
+     *
+     *
+     *@autor Alejandro Madrid
+     */
+
     @Test
     public void hotelSelection(){
         BookingHomePage bookingHome = getBookingHomePage();
@@ -46,9 +53,13 @@ public class HotelsTest extends BaseTest{
         hotelsPage.runHotelsTitle();
         hotelsPage.runHotelsScore();
         hotelsPage.runHotelsPrice();
+
+        log.info("Validations for Step 5, were for each of the elements to verify(title, score and price) the size is" +
+                "checked in order to verify that all the elements are on the runned list");
         Assert.assertEquals(hotelsPage.runHotelsTitle().size(),hotelsPage.runHotelsScore().size());
         Assert.assertEquals(hotelsPage.runHotelsScore().size(),hotelsPage.runHotelsTitle().size());
         Assert.assertEquals(hotelsPage.runHotelsPrice().size(),hotelsPage.runHotelsTitle().size());
+
         hotelsPage.clickSecondHotel();
         getWindowManager().switchToTab(hotelsPage.printSecondHotelTitle());
     }
